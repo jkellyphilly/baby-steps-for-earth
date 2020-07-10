@@ -5,15 +5,6 @@ export const fetchGoals = (input) => {
 
     // Then perform the fetch
     // NOTE: I have configured my API to run on port 4000.
-    let configObj = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({ goal: { input: input } })
-    }
-
     fetch(`http://localhost:4000/goals?tags=${input}`)
     .then(resp => resp.json())
     .then(responseJSON => {
