@@ -1,4 +1,9 @@
-const babyStepsReducer = (state = { goals: [], loading: false }, action) => {
+const defaultState = {
+  goals: [],
+  loading: false
+}
+
+const babyStepsReducer = (state = defaultState, action) => {
   switch(action.type) {
     case 'LOADING_GOALS':
       return {
@@ -11,6 +16,13 @@ const babyStepsReducer = (state = { goals: [], loading: false }, action) => {
       return {
         ...state,
         goals: action.goals,
+        loading: false
+      }
+
+    case 'ADD_NEW_GOAL':
+      return {
+        ...state,
+        goals: [...state.goals, action.new_goal],
         loading: false
       }
 
