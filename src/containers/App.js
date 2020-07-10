@@ -4,6 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import GoalsPage from './GoalsPage';
 
 class App extends Component {
 
@@ -13,8 +14,8 @@ class App extends Component {
         <div>
           <NavBar />
           <Route exact path="/" render={() => <div>Welcome to the community.</div>}/>
-          <Route exact path="/explore" render={() => <div>Explore</div>}/>
-          <Route exact path="/profile" render={() => <div>Your Profile.</div>}/>
+          <Route exact path="/explore" render={routerProps => <GoalsPage {...routerProps}/>}/>
+          <Route exact path="/profile" render={() => <div>Your Profile</div>}/>
         </div>
       </Router>
     );
