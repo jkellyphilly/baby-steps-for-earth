@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchGoals } from '../actions/babyStepsActions';
+import { fetchGoals, fetchPlans } from '../actions/babyStepsActions';
 import {
   BrowserRouter as Router,
   Route
@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchGoals();
-    // this.props.fetchPlans();
+    this.props.fetchPlans();
   }
 
   render() {
@@ -34,13 +34,15 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     goals: state.goals,
-    loading: state.loading
+    loading: state.loading,
+    plans: state.plans
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchGoals: (input = 'all') => dispatch(fetchGoals(input))
+    fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
+    fetchPlans: () => dispatch(fetchPlans())
   }
 }
 
