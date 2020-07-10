@@ -11,12 +11,11 @@ import PlansPage from './PlansPage';
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   this.props.fetchGoals();
-  // }
+  componentDidMount() {
+    this.props.fetchGoals();
+  }
 
   render() {
-    // console.log("Current props", this.props);
     return (
       <Router>
         <div>
@@ -31,4 +30,17 @@ class App extends Component {
 
 }
 
-export default App
+const mapStateToProps = state => {
+  return {
+    goals: state.goals,
+    loading: state.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchGoals: (input = 'all') => dispatch(fetchGoals(input))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

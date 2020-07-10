@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchGoals } from '../actions/babyStepsActions';
 import GoalSearch from '../components/GoalSearch';
+import GoalList from '../components/GoalList';
 
 class GoalsPage extends Component {
-
-  componentDidMount() {
-    this.props.fetchGoals();
-  }
 
   goalSearchSubmit = (input) => {
     this.props.fetchGoals(input);
@@ -18,7 +15,7 @@ class GoalsPage extends Component {
     return (
       <div className="goals">
         <GoalSearch goalSearchSubmit={this.goalSearchSubmit}/>
-        Hi there!!
+        <GoalList goals={this.props.goals}/>
       </div>
     )
   }
