@@ -7,21 +7,21 @@ import {
 } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import GoalsPage from './GoalsPage';
+import PlansPage from './PlansPage';
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.fetchGoals();
-  }
+  // componentDidMount() {
+  //   this.props.fetchGoals();
+  // }
 
   render() {
-    console.log("Upon render", this.props);
-
+    // console.log("Current props", this.props);
     return (
       <Router>
         <div>
           <NavBar />
-          <Route exact path="/" render={() => <div>Welcome to the community.</div>}/>
+          <Route exact path="/" render={routerProps => <PlansPage {...routerProps} />}/>
           <Route exact path="/explore" render={routerProps => <GoalsPage {...routerProps}/>}/>
           <Route exact path="/profile" render={() => <div>Your Profile</div>}/>
         </div>
@@ -31,17 +31,4 @@ class App extends Component {
 
 }
 
-const mapStateToProps = state => {
-  return {
-    goals: state.goals,
-    loading: state.loading
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchGoals: () => dispatch(fetchGoals())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
