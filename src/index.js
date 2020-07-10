@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import babyStepsReducer from './reducers/babyStepsReducer';
 
-const store = createStore(babyStepsReducer);
+const store = createStore(babyStepsReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
