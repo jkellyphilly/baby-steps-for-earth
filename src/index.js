@@ -9,8 +9,8 @@ import babyStepsReducer from './reducers/babyStepsReducer';
 const store = createStore(babyStepsReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
