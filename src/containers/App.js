@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchGoals } from '../actions/babyStepsActions';
 import {
   BrowserRouter as Router,
   Route
@@ -8,7 +10,13 @@ import GoalsPage from './GoalsPage';
 
 class App extends Component {
 
+  componentDidMount() {
+    this.props.fetchGoals();
+  }
+
   render() {
+    console.log("Upon render", this.props);
+
     return (
       <Router>
         <div>
@@ -23,4 +31,17 @@ class App extends Component {
 
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    goals: state.goals,
+    loading: state.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchGoals: () => dispatch(fetchGoals())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
