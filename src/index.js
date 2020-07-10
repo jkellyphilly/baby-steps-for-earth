@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 import babyStepsReducer from './reducers/babyStepsReducer';
 
 const store = createStore(babyStepsReducer, applyMiddleware(thunk));
-const BASE_URL = "http://localhost:4000";
 
 ReactDOM.render(
   <Provider store={store}>
