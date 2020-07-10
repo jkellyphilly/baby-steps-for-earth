@@ -12,6 +12,9 @@ class App extends Component {
       <Router>
         <div>
           <NavBar />
+          <Route exact path="/" render={() => <div>Welcome to the community.</div>}/>
+          <Route exact path="/explore" render={() => <div>Explore</div>}/>
+          <Route exact path="/profile" render={() => <div>Your Profile.</div>}/>
         </div>
       </Router>
     );
