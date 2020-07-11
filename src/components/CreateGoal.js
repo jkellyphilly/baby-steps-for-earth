@@ -5,7 +5,8 @@ class CreateGoal extends Component {
     super()
     this.state = {
       title: "",
-      content: ""
+      content: "",
+      tags: ""
     }
   }
 
@@ -25,7 +26,7 @@ class CreateGoal extends Component {
       <div className="create-new-goal">
         <form onSubmit={(e) => {
           this.handleSubmit(e, this.state);
-          this.setState({ title: "", content: "" })
+          this.setState({ title: "", content: "", tags: "" })
           }
         }>
           <label>
@@ -45,6 +46,16 @@ class CreateGoal extends Component {
             type="text"
             name="content"
             value={this.state.content}
+            onChange={this.handleChange}
+          />
+          <br/>
+          <label>
+            Enter your tags, separated by commas
+          </label>
+          <input
+            type="text"
+            name="tags"
+            value={this.state.tags}
             onChange={this.handleChange}
           />
           <br/>
