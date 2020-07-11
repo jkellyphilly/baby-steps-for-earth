@@ -36,6 +36,14 @@ const babyStepsReducer = (state = defaultState, action) => {
         loadingGoals: false
       }
 
+    case 'ADD_NEW_PLAN':
+      return {
+        ...state,
+        plans: [...state.plans, action.new_plan],
+        myGoals: [],
+        loadingPlans: false
+      }
+
     case 'ADD_NEW_GOAL':
       return {
         ...state,

@@ -74,7 +74,8 @@ export const createPlan = (info) => {
       if (responseJSON.message) {
         alert(responseJSON.message)
       } else {
-        console.log(responseJSON);
+        alert("Successfully created plan!")
+        dispatch({ type: 'ADD_NEW_PLAN', new_plan: responseJSON.data})
       }
     })
   }
