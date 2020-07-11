@@ -54,3 +54,28 @@ export const fetchPlans = () => {
     })
   }
 }
+
+export const createPlan = (info) => {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_PLANS' });
+
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(info)
+    }
+
+    fetch('http://localhost:4000/plans', configObj)
+    .then(resp => resp.json())
+    .then(responseJSON => {
+      if (responseJSON.message) {
+        alert(responseJSON.message)
+      } else {
+        console.log(responseJSON);
+      }
+    })
+  }
+}
