@@ -34,8 +34,9 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     goals: state.goals,
-    loading: state.loading,
-    plans: state.plans
+    loadingGoals: state.loadingGoals,
+    plans: state.plans,
+    loadingPlans: state.loadingPlans
   }
 }
 
