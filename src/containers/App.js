@@ -8,6 +8,7 @@ import {
 import NavBar from '../components/NavBar';
 import GoalsPage from './GoalsPage';
 import PlansPage from './PlansPage';
+import ProfilePage from './ProfilePage';
 
 class App extends Component {
 
@@ -23,7 +24,7 @@ class App extends Component {
           <NavBar />
           <Route exact path="/" render={routerProps => <PlansPage {...routerProps} />}/>
           <Route exact path="/explore" render={routerProps => <GoalsPage {...routerProps}/>}/>
-          <Route exact path="/profile" render={() => <div>Your Profile</div>}/>
+          <Route exact path="/profile" render={routerProps => <ProfilePage {...routerProps}/>}/>
         </div>
       </Router>
     );
@@ -36,7 +37,8 @@ const mapStateToProps = state => {
     goals: state.goals,
     loadingGoals: state.loadingGoals,
     plans: state.plans,
-    loadingPlans: state.loadingPlans
+    loadingPlans: state.loadingPlans,
+    myGoals: state.myGoals
   }
 }
 

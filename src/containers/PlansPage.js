@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const PlansPage = (routerProps) => (
-  <div>
-    It's me, the plans page.
-  </div>
-)
+class PlansPage extends Component {
+
+  render() {
+    return (
+      <div>
+        PLANS FOR DAYS!
+      </div>
+    )
+  }
+}
 
 export default PlansPage
