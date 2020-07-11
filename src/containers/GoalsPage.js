@@ -16,11 +16,15 @@ class GoalsPage extends Component {
   }
 
   render() {
+    console.log("GoalsPage props", this.props);
     return (
       <div className="goals">
         <CreateGoal createNewGoal={this.createNewGoal}/>
         <GoalSearch goalSearchSubmit={this.goalSearchSubmit}/>
-        <GoalList goals={this.props.goals}/>
+        <GoalList
+          goals={this.props.goals}
+          addGoalToMyPlan={this.props.addGoalToMyPlan}
+          path={this.props.match.path}/>
       </div>
     )
   }
@@ -30,14 +34,15 @@ class GoalsPage extends Component {
 const mapStateToProps = state => {
   return {
     goals: state.goals,
-    loading: state.loading
+    loadingGoals: state.loadingGoals
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
-    createGoal: (info) => dispatch(createGoal(info))
+    createGoal: (info) => dispatch(createGoal(info)),
+    addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal})
   }
 }
 
