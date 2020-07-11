@@ -28,7 +28,7 @@ export const createGoal = (info) => {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify({ title: info.title, content: info.content })
+      body: JSON.stringify({ title: info.title, content: info.content, tags: info.tags })
     }
 
     fetch('http://localhost:4000/goals', configObj)
