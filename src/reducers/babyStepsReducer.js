@@ -57,6 +57,13 @@ const babyStepsReducer = (state = defaultState, action) => {
         myGoals: [...state.myGoals, action.goal]
       }
 
+    case 'REMOVE_GOAL_FROM_MY_PLAN':
+      const idx = state.myGoals.findIndex(goal => goal.id === action.goal.id);
+      return {
+        ...state,
+        myGoals: [...state.myGoals.slice(0, idx), ...state.myGoals.slice(idx+1)]
+      }
+
     default:
       return state;
   }

@@ -29,8 +29,10 @@ class ProfilePage extends Component {
         <div className="my-goals-list">
           <GoalList
             goals={this.props.myGoals}
+            buttonFunction={this.props.removePlanFromMyPlan}
             path={this.props.match.path}/>
         </div>
+        <br/>
         <CreatePlan
           createNewPlan={this.createNewPlan}
           goals={this.props.myGoals}/>
@@ -47,7 +49,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createPlan: (info) => dispatch(createPlan(info))
+    createPlan: (info) => dispatch(createPlan(info)),
+    removePlanFromMyPlan: (goal) => dispatch({ type: 'REMOVE_GOAL_FROM_MY_PLAN', goal})
   }
 }
 

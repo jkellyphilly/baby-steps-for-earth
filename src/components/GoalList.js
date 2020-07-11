@@ -10,7 +10,7 @@ const GoalList = (props) => {
           <Goal
             goal={goal}
             key={goal.id}
-            addGoalToMyPlan={props.addGoalToMyPlan}
+            handleSubmit={props.buttonFunction}
             path={props.path}/>
         )
       })}

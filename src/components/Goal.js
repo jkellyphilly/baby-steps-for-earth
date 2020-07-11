@@ -5,17 +5,16 @@ class Goal extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.addGoalToMyPlan(this.props.goal);
+    this.props.handleSubmit(this.props.goal);
   }
 
   renderBtn = (path) => {
-    if (path === '/explore') {
-      return (
-        <button onClick={this.handleClick}>
-          Add to your plan!
-        </button>
-      )
-    }
+    const phrasing = path==='/explore' ? "Add to" : "Remove from";
+    return (
+      <button onClick={this.handleClick}>
+        {phrasing} your plan
+      </button>
+    )
   }
 
   render() {

@@ -23,7 +23,7 @@ class GoalsPage extends Component {
         <GoalSearch goalSearchSubmit={this.goalSearchSubmit}/>
         <GoalList
           goals={this.props.goals}
-          addGoalToMyPlan={this.props.addGoalToMyPlan}
+          buttonFunction={this.props.addGoalToMyPlan}
           path={this.props.match.path}/>
       </div>
     )
