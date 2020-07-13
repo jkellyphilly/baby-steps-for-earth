@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Goal from './Goal';
 
 const GoalList = (props) => {
-
   return (
     <div className="goal-list">
       {props.goals.map(goal => {
@@ -18,4 +17,4 @@ const GoalList = (props) => {
   )
 }
 
-export default GoalList;
+export default GoalList
