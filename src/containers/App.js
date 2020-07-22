@@ -22,7 +22,7 @@ class App extends Component {
       return (
       <Router>
         <div>
-          <NewNavBar />
+          <NavBar />
           <Route exact path="/" render={routerProps => <PlansPage {...routerProps} />}/>
           <Route exact path="/explore" render={routerProps => <GoalsPage {...routerProps}/>}/>
           <Route exact path="/profile" render={routerProps => <ProfilePage {...routerProps}/>}/>
