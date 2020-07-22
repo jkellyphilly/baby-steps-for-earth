@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Tags from './Tags';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 class Goal extends Component {
 
@@ -11,20 +12,24 @@ class Goal extends Component {
   renderBtn = (path) => {
     const phrasing = path==='/explore' ? "Add to" : "Remove from";
     return (
-      <button onClick={this.handleClick}>
+      <Button variant="info" onClick={this.handleClick}>
         {phrasing} your plan
-      </button>
+      </Button>
     )
   }
 
   render() {
+    const reducer = (acc, curr) => acc + ' #' + curr.content;
     return (
-      <div className="goal" data-id={this.props.goal.id}>
-        <p>{this.props.goal.attributes.title}</p>
-        <li>{this.props.goal.attributes.content}</li>
-        <Tags tags={this.props.goal.attributes.tags}/>
-        {this.renderBtn(this.props.path)}
-      </div>
+      <Card style={{ width: '33rem' }}>
+        <Card.Body>
+          <Card.Title>{this.props.goal.attributes.title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+          <Card.Text>{this.props.goal.attributes.content}</Card.Text>
+          {this.renderBtn(this.props.path)}
+        </Card.Body>
+        <Card.Footer className="text-muted">{this.props.goal.attributes.tags.reduce(reducer, "")}</Card.Footer>
+      </Card>
     )
   }
 }
