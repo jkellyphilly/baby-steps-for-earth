@@ -6,6 +6,7 @@ import {
   Route
 } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import NewNavBar from '../components/NewNavBar';
 import GoalsPage from './GoalsPage';
 import PlansPage from './PlansPage';
 import ProfilePage from './ProfilePage';
@@ -18,10 +19,10 @@ class App extends Component {
   }
 
   render() {
-    return (
+      return (
       <Router>
         <div>
-          <NavBar />
+          <NewNavBar />
           <Route exact path="/" render={routerProps => <PlansPage {...routerProps} />}/>
           <Route exact path="/explore" render={routerProps => <GoalsPage {...routerProps}/>}/>
           <Route exact path="/profile" render={routerProps => <ProfilePage {...routerProps}/>}/>

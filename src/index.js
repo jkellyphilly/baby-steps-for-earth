@@ -7,6 +7,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import babyStepsReducer from './reducers/babyStepsReducer';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const store = createStore(babyStepsReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
