@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 class CreatePlan extends Component {
   constructor() {
@@ -21,24 +23,25 @@ class CreatePlan extends Component {
 
   render() {
     return (
-      <div className="create-new-plan">
-        <form onSubmit={(e) => {
-          this.handleSubmit(e, this.state);
-          this.setState({ username: "" })
-          }
-        }>
-          <label>
-            Enter your name:
-          </label>
-          <input
-            type="text"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <br/>
-          <input type="submit" value="Create my plan!" />
-        </form>
+      <div className="create-new-plan" style={{ width: '33rem' }}>
+        <Form>
+          <Form.Group>
+            <Form.Label>Enter your name:</Form.Label>
+            <Form.Control
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange} />
+          </Form.Group>
+          <Button
+            variant="primary"
+            onClick={(e) => {
+              this.handleSubmit(e, this.state)
+              this.setState({ username: "" })
+            }}>
+            Create my plan!
+          </Button>
+        </Form>
       </div>
     )
   }
