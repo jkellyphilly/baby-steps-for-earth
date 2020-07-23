@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PlanList from '../components/PlanList';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 class PlansPage extends Component {
 
@@ -8,8 +10,14 @@ class PlansPage extends Component {
     console.log("PlanPage props", this.props);
     return (
       <div>
-        <h1>Welcome to the community!</h1>
-        <h3>View other members' plans to make baby steps to help the earth!</h3>
+        <Jumbotron fluid>
+          <Container>
+            <h1>Welcome to the community</h1>
+            <p>
+              View other members' plans to make baby steps to help the earth!
+            </p>
+          </Container>
+        </Jumbotron>
         <div>
           <PlanList plans={this.props.plans}/>
         </div>
