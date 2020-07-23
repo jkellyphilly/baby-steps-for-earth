@@ -34,17 +34,19 @@ class ProfilePage extends Component {
             </p>
           </Container>
         </Jumbotron>
-        <h3>Your current goals</h3>
-        <div className="my-goals-list">
-          <GoalList
-            goals={this.props.myGoals}
-            buttonFunction={this.props.removePlanFromMyPlan}
-            path={this.props.match.path}/>
-        </div>
-        <br/>
-        <CreatePlan
-          createNewPlan={this.createNewPlan}
-          goals={this.props.myGoals}/>
+        <Container>
+          <h3>Your current goals</h3>
+          <div className="my-goals-list">
+            <GoalList
+              goals={this.props.myGoals}
+              buttonFunction={this.props.removePlanFromMyPlan}
+              path={this.props.match.path}/>
+          </div>
+          <br/>
+          <CreatePlan
+            createNewPlan={this.createNewPlan}
+            goals={this.props.myGoals}/>
+        </Container>
       </div>
     )
   }

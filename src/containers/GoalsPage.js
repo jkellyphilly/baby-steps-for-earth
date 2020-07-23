@@ -31,6 +31,7 @@ class GoalsPage extends Component {
           </Container>
         </Jumbotron>
         <GoalSearch goalSearchSubmit={this.goalSearchSubmit}/>
+        <br/>
         <GoalList
           goals={this.props.goals}
           buttonFunction={this.props.addGoalToMyPlan}

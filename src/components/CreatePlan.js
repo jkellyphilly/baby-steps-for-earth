@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 class CreatePlan extends Component {
   constructor() {
@@ -17,6 +18,7 @@ class CreatePlan extends Component {
   }
 
   handleSubmit = (e, info) => {
+    debugger;
     e.preventDefault();
     this.props.createNewPlan(info);
   }

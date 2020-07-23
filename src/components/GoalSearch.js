@@ -34,14 +34,11 @@ class GoalSearch extends Component {
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="filter: e.g. vegan, energy"
-              style={{width: "auto"}}
+              placeholder="e.g. vegan, energy"
               value={this.state.searchTerm}
               onChange={this.handleChange} />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <Button variant="primary" type="submit">Filter</Button>
         </Form>
       </Container>
     )
