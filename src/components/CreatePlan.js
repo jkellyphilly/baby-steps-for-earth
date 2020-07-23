@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -15,6 +16,34 @@ class CreatePlan extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+  }
+
+  renderSubmitBtn = () => {
+    if (this.props.myGoals.length !== 7) {
+      return (
+        <Button
+          variant="primary"
+          onClick={(e) => {
+            this.handleSubmit(e, this.state)
+            this.setState({ username: "" })
+          }}
+          disabled >
+          Create my plan!
+        </Button>
+      )
+    } else {
+      return (
+        <Button
+          variant="primary"
+          onClick={(e) => {
+            this.handleSubmit(e, this.state)
+            this.setState({ username: "" })
+          }}
+          active >
+          Create my plan!
+        </Button>
+      )
+    }
   }
 
   handleSubmit = (e, info) => {
@@ -35,18 +64,17 @@ class CreatePlan extends Component {
               value={this.state.username}
               onChange={this.handleChange} />
           </Form.Group>
-          <Button
-            variant="primary"
-            onClick={(e) => {
-              this.handleSubmit(e, this.state)
-              this.setState({ username: "" })
-            }}>
-            Create my plan!
-          </Button>
+          {this.renderSubmitBtn()}
         </Form>
       </div>
     )
   }
 }
 
-export default CreatePlan
+const mapStateToProps = state => {
+  return {
+    myGoals: state.myGoals
+  }
+}
+
+export default connect(mapStateToProps)(CreatePlan)
