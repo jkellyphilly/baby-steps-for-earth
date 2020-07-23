@@ -22,25 +22,8 @@ class GoalSearch extends Component {
   }
 
   render() {
-    // return (
-    //   <div className="goal-search-section">
-    //     <form onSubmit={(e) => {
-    //       this.handleSubmit(e, this.state.searchTerm);
-    //       this.setState({
-    //         searchTerm: ""
-    //       })
-    //       }
-    //     }>
-    //       <label>
-    //         Enter a tag to filter:
-    //       </label>
-    //       <input type="text" value={this.state.searchTerm} onChange={this.handleChange} />
-    //       <input type="submit" value="Find Goals" />
-    //     </form>
-    //   </div>
-    // )
     return (
-      <Form onSubmit={(e) => {
+      <Form style={{ width: '33rem' }} onSubmit={(e) => {
         this.handleSubmit(e, this.state.searchTerm);
         this.setState({
           searchTerm: ""
