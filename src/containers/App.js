@@ -6,7 +6,6 @@ import {
   Route
 } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import NewNavBar from '../components/NewNavBar';
 import GoalsPage from './GoalsPage';
 import PlansPage from './PlansPage';
 import ProfilePage from './ProfilePage';
