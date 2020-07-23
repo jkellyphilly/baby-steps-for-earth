@@ -21,10 +21,9 @@ class Goal extends Component {
   render() {
     const reducer = (acc, curr) => acc + ' #' + curr.content;
     return (
-      <Card style={{ width: '33rem' }}>
+      <Card style={{ width: '25rem' }}>
         <Card.Body>
-          <Card.Title>{this.props.goal.attributes.title}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+          <Card.Title className="text-center">{this.props.goal.attributes.title}</Card.Title>
           <Card.Text>{this.props.goal.attributes.content}</Card.Text>
           {this.renderBtn(this.props.path)}
         </Card.Body>
