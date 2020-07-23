@@ -59,7 +59,6 @@ class CreatePlan extends Component {
   }
 
   handleSubmit = (e, info) => {
-    debugger;
     e.preventDefault();
     this.props.createNewPlan(info);
   }
