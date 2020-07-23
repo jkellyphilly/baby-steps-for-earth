@@ -5,6 +5,7 @@ import ModalHeader from 'react-bootstrap/ModalHeader';
 import ModalBody from 'react-bootstrap/ModalBody';
 import ModalFooter from 'react-bootstrap/ModalFooter';
 import ModalTitle from 'react-bootstrap/ModalTitle';
+import Form from 'react-bootstrap/Form';
 
 class CreateGoal extends Component {
   constructor() {
@@ -53,38 +54,41 @@ class CreateGoal extends Component {
             <Modal.Title>New Goal</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form>
-              <label>
-                Give your goal a title:
-              </label>
-              <input
-                type="text"
-                name="title"
-                value={this.state.title}
-                onChange={this.handleChange}
-              />
-              <br/>
-              <label>
-                What's your goal??
-              </label>
-              <input
-                type="text"
-                name="content"
-                value={this.state.content}
-                onChange={this.handleChange}
-              />
-              <br/>
-              <label>
-                Enter your tags, separated by commas
-              </label>
-              <input
-                type="text"
-                name="tags"
-                value={this.state.tags}
-                onChange={this.handleChange}
-              />
-              <br/>
-            </form>
+            <Form>
+              <Form.Group>
+                <Form.Label>Give your goal a title</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.handleChange} />
+                <Form.Text className="text-muted">
+                  Titles should be short and to the point.
+                </Form.Text>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>What's your goal?</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows="3"
+                  type="textarea"
+                  name="content"
+                  value={this.state.content}
+                  onChange={this.handleChange} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Tags</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="tags"
+                  placeholder="e.g. water conservation, vegan, morning routine"
+                  value={this.state.tags}
+                  onChange={this.handleChange} />
+                <Form.Text className="text-muted">
+                  Make sure to separate your tags with commas!
+                </Form.Text>
+              </Form.Group>
+            </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
