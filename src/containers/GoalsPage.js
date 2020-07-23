@@ -4,6 +4,8 @@ import { fetchGoals, createGoal } from '../actions/babyStepsActions';
 import GoalSearch from '../components/GoalSearch';
 import GoalList from '../components/GoalList';
 import CreateGoal from '../components/CreateGoal';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 class GoalsPage extends Component {
 
@@ -19,7 +21,15 @@ class GoalsPage extends Component {
     console.log("GoalsPage props", this.props);
     return (
       <div className="goals">
-        <CreateGoal createNewGoal={this.createNewGoal}/>
+        <Jumbotron fluid>
+          <Container>
+            <h1>Explore baby steps</h1>
+            <p>
+              Here you will find all the goals that have been created on our site. Use the filter below to search for specific goals by tag!
+            </p>
+            <CreateGoal createNewGoal={this.createNewGoal}/>
+          </Container>
+        </Jumbotron>
         <GoalSearch goalSearchSubmit={this.goalSearchSubmit}/>
         <GoalList
           goals={this.props.goals}
