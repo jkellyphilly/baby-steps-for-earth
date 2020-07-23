@@ -6,7 +6,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 const Plan = (props) => {
   return (
     <div className="plan">
-      <Card border="info" style={{ width: '25rem' }}>
+      <Card border="info" style={{ width: '20rem' }}>
         <Card.Body>
           <Card.Title>{props.plan.attributes.username}</Card.Title>
         </Card.Body>
