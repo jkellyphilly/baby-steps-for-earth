@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import GoalList from '../components/GoalList';
 import { createPlan } from '../actions/babyStepsActions';
 import CreatePlan from '../components/CreatePlan';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 class ProfilePage extends Component {
 
@@ -23,8 +25,15 @@ class ProfilePage extends Component {
   render() {
     console.log("ProfilePage props", this.props);
     return(
-      <div>
-        <h1>Welcome to your profile.</h1>
+      <div className="profile-page">
+        <Jumbotron fluid>
+          <Container>
+            <h1>Welcome to your profile!</h1>
+            <p>
+              Here you will find the goals which you have added to your plan. Once you have seven (enough for one week), you can submit your plan to our online community!
+            </p>
+          </Container>
+        </Jumbotron>
         <h3>Your current goals</h3>
         <div className="my-goals-list">
           <GoalList
