@@ -46,6 +46,18 @@ class CreatePlan extends Component {
     }
   }
 
+  renderLabel = () => {
+    if (this.props.myGoals.length !== 7) {
+      return (
+        <Form.Label style={{color: "red"}}>Can only submit a plan with exactly 7 goals! You currently have {this.props.myGoals.length}</Form.Label>
+      )
+    } else {
+      return (
+        <Form.Label>Enter your name: </Form.Label>
+      )
+    }
+  }
+
   handleSubmit = (e, info) => {
     debugger;
     e.preventDefault();
@@ -57,10 +69,11 @@ class CreatePlan extends Component {
       <div className="create-new-plan" style={{ width: '33rem' }}>
         <Form>
           <Form.Group>
-            <Form.Label>Enter your name:</Form.Label>
+            {this.renderLabel()}
             <Form.Control
               type="text"
               name="username"
+              placeholder="Your name"
               value={this.state.username}
               onChange={this.handleChange} />
           </Form.Group>
