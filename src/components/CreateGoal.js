@@ -1,10 +1,6 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import ModalHeader from 'react-bootstrap/ModalHeader';
-import ModalBody from 'react-bootstrap/ModalBody';
-import ModalFooter from 'react-bootstrap/ModalFooter';
-import ModalTitle from 'react-bootstrap/ModalTitle';
 import Form from 'react-bootstrap/Form';
 
 class CreateGoal extends Component {
