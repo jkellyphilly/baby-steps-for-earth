@@ -18,7 +18,6 @@ class GoalsPage extends Component {
   }
 
   render() {
-    console.log("GoalsPage props", this.props);
     return (
       <div className="goals">
         <Jumbotron fluid>

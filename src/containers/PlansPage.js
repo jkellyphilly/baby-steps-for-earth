@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container';
 class PlansPage extends Component {
 
   render() {
-    console.log("PlanPage props", this.props);
     return (
       <div>
         <Jumbotron fluid>

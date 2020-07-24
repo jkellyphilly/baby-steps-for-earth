@@ -23,7 +23,6 @@ class ProfilePage extends Component {
   }
 
   render() {
-    console.log("ProfilePage props", this.props);
     return(
       <div className="profile-page">
         <Jumbotron fluid>
