@@ -32,16 +32,6 @@ class App extends Component {
 
 }
 
-const mapStateToProps = state => {
-  return {
-    goals: state.goals,
-    loadingGoals: state.loadingGoals,
-    plans: state.plans,
-    loadingPlans: state.loadingPlans,
-    myGoals: state.myGoals
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
@@ -49,4 +39,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)
