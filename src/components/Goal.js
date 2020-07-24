@@ -1,36 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-class Goal extends Component {
+const Goal = (props) => {
 
-  handleClick = (event) => {
+  const handleClick = (event) => {
     event.preventDefault();
-    this.props.handleSubmit(this.props.goal);
+    props.handleSubmit(props.goal);
   }
 
-  renderBtn = (path) => {
+  const renderBtn = (path) => {
     const phrasing = path==='/explore' ? "Add to" : "Remove from";
     return (
-      <Button variant="info" onClick={this.handleClick}>
+      <Button variant="info" onClick={handleClick}>
         {phrasing} your plan
       </Button>
     )
   }
 
-  render() {
-    const reducer = (acc, curr) => acc + ' #' + curr.content;
-    return (
-      <Card style={{ width: '20rem' }}>
-        <Card.Body>
-          <Card.Title className="text-center">{this.props.goal.attributes.title}</Card.Title>
-          <Card.Text>{this.props.goal.attributes.content}</Card.Text>
-          {this.renderBtn(this.props.path)}
-        </Card.Body>
-        <Card.Footer className="text-muted">{this.props.goal.attributes.tags.reduce(reducer, "")}</Card.Footer>
-      </Card>
-    )
-  }
+  const reducer = (acc, curr) => acc + ' #' + curr.content;
+
+  return (
+    <Card style={{ width: '20rem' }}>
+      <Card.Body>
+        <Card.Title className="text-center">{props.goal.attributes.title}</Card.Title>
+        <Card.Text>{props.goal.attributes.content}</Card.Text>
+        {renderBtn(props.path)}
+      </Card.Body>
+      <Card.Footer className="text-muted">{props.goal.attributes.tags.reduce(reducer, "")}</Card.Footer>
+    </Card>
+  )
 }
 
 export default Goal;
