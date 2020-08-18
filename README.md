@@ -1,4 +1,32 @@
+# Baby Steps for Earth
+
+Welcome to the Baby Steps for Earth project! This is the repository for the React front-end, and the back-end Rails API repo can be found here: https://github.com/jkellyphilly/baby-steps-for-earth-backend.
+
+Taking care of the earth and the environment can feel like a daunting task, so the purpose of this application is to break it down into a series of baby steps. Search for goals that have already been created by other users or create your own, and add them to your personal plan. Once you have 7 goals in your plan, you can publish your plan to the larger community with your name so others can be inspired by the steps you are taking to take care of the earth.
+
+For a more thorough explanation of how to use this app (interacting with the front-end), check out this video: https://www.youtube.com/watch?v=Yd6Rc8FYgyg
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Usage
+
+Fork and clone this repository and the back-end repository (located [here](https://github.com/jkellyphilly/baby-steps-for-earth-backend)) and start up the rails server with `rails s -p XXXX` from the backend end folder. Note: the port on which to run the server is your choosing. The reason I have run this not on the standard 3000 is due to the fact that React also runs on port 3000.
+
+Next, ensure in the `src/actions/babyStepsActions.js` that the fetch requests are directed to the appropriate end-location. This app will be deployed on Heroku, but swap this endpoint to be localhost for local debugging.
+
+Finally, run `npm start` from the front-end folder. The application should open in your default browser. Contribution is encouraged!!
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/jkellyphilly/baby-steps-for-earth. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+This application is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Baby Steps for Earth project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jkellyphilly/baby-steps-for-earth/blob/master/CODE_OF_CONDUCT.md).
 
 ## Available Scripts
 
