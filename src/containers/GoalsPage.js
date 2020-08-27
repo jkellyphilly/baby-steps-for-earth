@@ -17,7 +17,12 @@ class GoalsPage extends Component {
     this.props.createGoal(info);
   }
 
+  updateSearchTerm = (newTerm) => {
+    console.log("This function is hit");
+  }
+
   render() {
+    console.log("Props for the page", this.props)
     return (
       <div className="goals">
         <Jumbotron fluid>
@@ -29,7 +34,11 @@ class GoalsPage extends Component {
             <CreateGoal createNewGoal={this.createNewGoal}/>
           </Container>
         </Jumbotron>
-        <GoalSearch goalSearchSubmit={this.goalSearchSubmit}/>
+        <GoalSearch
+          goalSearchSubmit={this.goalSearchSubmit}
+          updateSearchTerm={this.updateSearchTerm}
+          currentSearchTerm={this.props.currentSearchTerm}
+        />
         <br/>
         <GoalList
           goals={this.props.goals}
@@ -44,7 +53,8 @@ class GoalsPage extends Component {
 const mapStateToProps = state => {
   return {
     goals: state.goals,
-    loadingGoals: state.loadingGoals
+    loadingGoals: state.loadingGoals,
+    currentSearchTerm: state.currentSearchTerm
   }
 }
 
@@ -53,6 +63,7 @@ const mapDispatchToProps = dispatch => {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
     createGoal: (info) => dispatch(createGoal(info)),
     addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal})
+    // updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm})
   }
 }
 

@@ -3,7 +3,8 @@ const defaultState = {
   goals: [],
   loadingPlans: false,
   loadingGoals: false,
-  myGoals: []
+  myGoals: [],
+  currentSearchTerm: "all"
 }
 
 const babyStepsReducer = (state = defaultState, action) => {
@@ -63,6 +64,14 @@ const babyStepsReducer = (state = defaultState, action) => {
         ...state,
         myGoals: [...state.myGoals.slice(0, idx), ...state.myGoals.slice(idx+1)]
       }
+
+    case 'UPDATE_CURRENT_SEARCH_TERM':
+      console.log("Reached")
+      return state;
+      // return {
+      //   ...state,
+      //   currentSearchTerm: action.updatedSearchTerm
+      // }
 
     default:
       return state;
