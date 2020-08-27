@@ -4,7 +4,8 @@ const defaultState = {
   loadingPlans: false,
   loadingGoals: false,
   myGoals: [],
-  currentSearchTerm: "all"
+  currentSearchTerm: "all",
+  alertMessage: ""
 }
 
 const babyStepsReducer = (state = defaultState, action) => {

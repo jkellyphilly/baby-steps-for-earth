@@ -6,6 +6,7 @@ import GoalList from '../components/GoalList';
 import CreateGoal from '../components/CreateGoal';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert'
 
 class GoalsPage extends Component {
 
@@ -15,6 +16,18 @@ class GoalsPage extends Component {
 
   createNewGoal = (info) => {
     this.props.createGoal(info);
+  }
+
+  renderAlert = () => {
+    if (!!this.props.alertMessage) {
+      return (
+        <Alert variant="success">
+          <p>
+            {this.props.alertMessage}
+          </p>
+        </Alert>
+      )
+    }
   }
 
   updateSearchTerm = (newTerm) => {
@@ -34,6 +47,7 @@ class GoalsPage extends Component {
             <CreateGoal createNewGoal={this.createNewGoal}/>
           </Container>
         </Jumbotron>
+        {this.renderAlert()}
         <GoalSearch
           goalSearchSubmit={this.goalSearchSubmit}
           updateCurrentSearchTerm={this.updateSearchTerm}
@@ -54,7 +68,8 @@ const mapStateToProps = state => {
   return {
     goals: state.goals,
     loadingGoals: state.loadingGoals,
-    currentSearchTerm: state.currentSearchTerm
+    currentSearchTerm: state.currentSearchTerm,
+    alertMessage: state.alertMessage
   }
 }
 
