@@ -19,6 +19,7 @@ class GoalSearch extends Component {
 
   handleSubmit = (e, searchTerm) => {
     e.preventDefault();
+    this.props.updateCurrentSearchTerm(searchTerm);
     this.props.goalSearchSubmit(searchTerm);
   }
 
@@ -40,6 +41,9 @@ class GoalSearch extends Component {
           </Form.Group>
           <Button variant="primary" type="submit">Filter</Button>
         </Form>
+        <Form.Text id="passwordHelpBlock" muted>
+          Current search term: {this.props.currentSearchTerm}
+        </Form.Text>
       </Container>
     )
   }
