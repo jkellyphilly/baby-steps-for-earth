@@ -66,12 +66,11 @@ const babyStepsReducer = (state = defaultState, action) => {
       }
 
     case 'UPDATE_CURRENT_SEARCH_TERM':
-      console.log("Reached")
-      return state;
-      // return {
-      //   ...state,
-      //   currentSearchTerm: action.updatedSearchTerm
-      // }
+      // console.log("Reached")
+      return {
+        ...state,
+        currentSearchTerm: action.updatedSearchTerm
+      }
 
     default:
       return state;

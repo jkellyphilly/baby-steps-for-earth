@@ -18,7 +18,7 @@ class GoalsPage extends Component {
   }
 
   updateSearchTerm = (newTerm) => {
-    console.log("This function is hit");
+    this.props.updateSearchTerm(newTerm);
   }
 
   render() {
@@ -36,7 +36,7 @@ class GoalsPage extends Component {
         </Jumbotron>
         <GoalSearch
           goalSearchSubmit={this.goalSearchSubmit}
-          updateSearchTerm={this.updateSearchTerm}
+          updateCurrentSearchTerm={this.updateSearchTerm}
           currentSearchTerm={this.props.currentSearchTerm}
         />
         <br/>
@@ -62,8 +62,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
     createGoal: (info) => dispatch(createGoal(info)),
-    addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal})
-    // updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm})
+    addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal}),
+    updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm})
   }
 }
 

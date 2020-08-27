@@ -42,7 +42,7 @@ class GoalSearch extends Component {
           <Button variant="primary" type="submit">Filter</Button>
         </Form>
         <Form.Text id="passwordHelpBlock" muted>
-          Current search term: {this.props.currentSearchTerm}
+          Current filter: {this.props.currentSearchTerm}
         </Form.Text>
       </Container>
     )
