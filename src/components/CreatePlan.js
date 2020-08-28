@@ -17,15 +17,12 @@ class CreatePlan extends Component {
     })
   }
 
+  // TODO: this can be condensed more
   renderSubmitBtn = () => {
     if (this.props.myGoals.length !== 7) {
       return (
         <Button
           variant="primary"
-          onClick={(e) => {
-            this.handleSubmit(e, this.state)
-            this.setState({ username: "" })
-          }}
           disabled >
           Create my plan!
         </Button>
@@ -59,14 +56,16 @@ class CreatePlan extends Component {
 
   handleSubmit = (e, info) => {
     e.preventDefault();
-    console.log("Being reached?");
     this.props.createNewPlan(info);
   }
 
   render() {
     return (
       <div className="create-new-plan" style={{ width: '33rem' }}>
-        <Form>
+        <Form onSubmit={(e) => {
+          this.handleSubmit(e, this.state)
+          this.setState({ username: "" })
+        }}>
           <Form.Group>
             {this.renderLabel()}
             <Form.Control
