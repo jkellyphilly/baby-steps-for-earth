@@ -46,8 +46,9 @@ const babyStepsReducer = (state = defaultState, action) => {
         plans: [...state.plans, action.new_plan],
         myGoals: [],
         loadingPlans: false,
+        alertMessageExplore: "",
         alertMessageProfile: "Successfully created plan!",
-        username: action.new_plan.attributes.username
+        username: action.new_plan.attributes.username,
       }
 
     case 'ADD_NEW_GOAL':
