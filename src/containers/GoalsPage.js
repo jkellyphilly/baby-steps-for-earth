@@ -30,7 +30,7 @@ class GoalsPage extends Component {
           <Alert variant="success">
             <Alert.Heading>{this.props.alertMessage}</Alert.Heading>
             <p>
-              Goal added: "{this.props.addedGoal.attributes.title}"
+              Goal added: "{this.props.addedGoal.attributes.title}". You currently have {this.props.myGoals.length} goal(s) in your plan.
             </p>
             <div className="d-flex justify-content-end">
             <Button onClick={this.closeAlert} variant="outline-success">
@@ -85,7 +85,8 @@ const mapStateToProps = state => {
     loadingGoals: state.loadingGoals,
     currentSearchTerm: state.currentSearchTerm,
     alertMessage: state.alertMessage,
-    addedGoal: state.addedGoal
+    addedGoal: state.addedGoal,
+    myGoals: state.myGoals
   }
 }
 
