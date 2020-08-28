@@ -11,14 +11,6 @@ import Button from 'react-bootstrap/Button';
 
 class GoalsPage extends Component {
 
-  goalSearchSubmit = (input) => {
-    this.props.fetchGoals(input);
-  }
-
-  createNewGoal = (info) => {
-    this.props.createGoal(info);
-  }
-
   closeAlert = () => {
     this.props.removeSuccessMessage();
   }
@@ -52,12 +44,12 @@ class GoalsPage extends Component {
             <p>
               Here you will find all the goals that have been created on our site. Use the filter below to search for specific goals by tag!
             </p>
-            <CreateGoal createNewGoal={this.createNewGoal}/>
+            <CreateGoal createNewGoal={this.props.createGoal}/>
           </Container>
         </Jumbotron>
         {this.renderAlert()}
         <GoalSearch
-          goalSearchSubmit={this.goalSearchSubmit}
+          goalSearchSubmit={this.props.fetchGoals}
           updateCurrentSearchTerm={this.props.updateSearchTerm}
           currentSearchTerm={this.props.currentSearchTerm}
         />
