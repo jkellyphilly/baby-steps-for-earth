@@ -5,7 +5,9 @@ const defaultState = {
   loadingGoals: false,
   myGoals: [],
   currentSearchTerm: "all",
-  alertMessageExplore: ""
+  alertMessageExplore: "",
+  alertMessageProfile: "",
+  username: ""
 }
 
 const babyStepsReducer = (state = defaultState, action) => {
@@ -43,7 +45,8 @@ const babyStepsReducer = (state = defaultState, action) => {
         ...state,
         plans: [...state.plans, action.new_plan],
         myGoals: [],
-        loadingPlans: false
+        loadingPlans: false,
+        alertMessageProfile: "Successfully created plan!"
       }
 
     case 'ADD_NEW_GOAL':
@@ -83,6 +86,12 @@ const babyStepsReducer = (state = defaultState, action) => {
       return {
         ...state,
         alertMessageExplore: ""
+      }
+
+    case 'REMOVE_ALERT_MESSAGE_PROFILE':
+      return {
+        ...state,
+        alertMessageProfile: ""
       }
 
     default:

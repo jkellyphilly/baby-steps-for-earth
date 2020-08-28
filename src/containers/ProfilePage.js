@@ -5,6 +5,8 @@ import { createPlan } from '../actions/babyStepsActions';
 import CreatePlan from '../components/CreatePlan';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 class ProfilePage extends Component {
 
@@ -22,6 +24,30 @@ class ProfilePage extends Component {
     this.props.createPlan(newPlan);
   }
 
+  closeAlert = () => {
+    this.props.removeAlertMessage();
+  }
+
+  renderAlert = () => {
+    if (!!this.props.alertMessage) {
+      return (
+        <Container>
+          <Alert variant="success">
+            <Alert.Heading>{this.props.alertMessage}</Alert.Heading>
+            <p>
+              Thanks for adding your plan to our community, {this.props.username}
+            </p>
+            <div className="d-flex justify-content-end">
+            <Button onClick={this.closeAlert} variant="outline-success">
+              Close
+            </Button>
+          </div>
+          </Alert>
+        </Container>
+      )
+    }
+  }
+
   render() {
     return(
       <div className="profile-page">
@@ -33,6 +59,7 @@ class ProfilePage extends Component {
             </p>
           </Container>
         </Jumbotron>
+        {this.renderAlert()}
         <Container>
           <h3>Your current goals</h3>
           <div className="my-goals-list">
@@ -53,14 +80,17 @@ class ProfilePage extends Component {
 
 const mapStateToProps = state => {
   return {
-    myGoals: state.myGoals
+    myGoals: state.myGoals,
+    alertMessage: state.alertMessageProfile,
+    username: state.username
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     createPlan: (info) => dispatch(createPlan(info)),
-    removePlanFromMyPlan: (goal) => dispatch({ type: 'REMOVE_GOAL_FROM_MY_PLAN', goal})
+    removePlanFromMyPlan: (goal) => dispatch({ type: 'REMOVE_GOAL_FROM_MY_PLAN', goal}),
+    removeAlertMessage: () => dispatch({ type: 'REMOVE_ALERT_MESSAGE_PROFILE'})
   }
 }
 
