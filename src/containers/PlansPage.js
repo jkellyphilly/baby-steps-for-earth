@@ -6,12 +6,19 @@ import Container from 'react-bootstrap/Container';
 
 class PlansPage extends Component {
 
+  renderWelcome = () => {
+    const phrasing = !!this.props.username ? "Welcome to the community, " + this.props.username + "!" : "Welcome to the community!";
+    return (
+      <h1>{phrasing}</h1>
+    )
+  }
+
   render() {
     return (
       <div>
         <Jumbotron fluid>
           <Container>
-            <h1>Welcome to the community</h1>
+            {this.renderWelcome()}
             <p>
               View other members' plans to make baby steps to help the earth!
             </p>
@@ -27,7 +34,8 @@ class PlansPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    plans: state.plans
+    plans: state.plans,
+    username: state.username
   }
 }
 
