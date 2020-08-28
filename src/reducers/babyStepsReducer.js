@@ -61,7 +61,9 @@ const babyStepsReducer = (state = defaultState, action) => {
     case 'ADD_GOAL_TO_MY_PLAN':
       return {
         ...state,
-        myGoals: [...state.myGoals, action.goal]
+        myGoals: [...state.myGoals, action.goal],
+        alertMessageExplore: "Goal added to your profile!",
+        addedGoal: action.goal
       }
 
     case 'REMOVE_GOAL_FROM_MY_PLAN':
@@ -75,13 +77,6 @@ const babyStepsReducer = (state = defaultState, action) => {
       return {
         ...state,
         currentSearchTerm: action.updatedSearchTerm
-      }
-
-    case 'UPDATE_ALERT_MESSAGE_EXPLORE':
-      return {
-        ...state,
-        alertMessageExplore: action.message,
-        addedGoal: action.goal
       }
 
     case 'REMOVE_ALERT_MESSAGE_EXPLORE':

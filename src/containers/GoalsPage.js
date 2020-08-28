@@ -96,7 +96,6 @@ const mapDispatchToProps = dispatch => {
     createGoal: (info) => dispatch(createGoal(info)),
     addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal}),
     updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm}),
-    addSuccessMessage: (message, goal) => dispatch({ type: 'UPDATE_ALERT_MESSAGE_EXPLORE', message, goal}),
     removeSuccessMessage: () => dispatch({ type: 'REMOVE_ALERT_MESSAGE_EXPLORE'})
   }
 }
