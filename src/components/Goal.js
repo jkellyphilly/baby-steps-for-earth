@@ -6,7 +6,7 @@ const Goal = (props) => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    props.addSuccessMessage("Congrats - goal added to your profile.");
+    props.addSuccessMessage("Congrats - goal added to your profile!");
     props.handleSubmit(props.goal);
   }
 

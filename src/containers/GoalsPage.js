@@ -21,11 +21,13 @@ class GoalsPage extends Component {
   renderAlert = () => {
     if (!!this.props.alertMessage) {
       return (
-        <Alert variant="success">
-          <p>
-            {this.props.alertMessage}
-          </p>
-        </Alert>
+        <Container>
+          <Alert variant="success">
+            <p>
+              {this.props.alertMessage}
+            </p>
+          </Alert>
+        </Container>
       )
     }
   }
