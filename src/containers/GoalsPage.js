@@ -43,12 +43,6 @@ class GoalsPage extends Component {
     }
   }
 
-  // TODO: can this function be removed and the dispatch
-  // just immediately gets passed in...?
-  updateSearchTerm = (newTerm) => {
-    this.props.updateSearchTerm(newTerm);
-  }
-
   render() {
     return (
       <div className="goals">
@@ -64,7 +58,7 @@ class GoalsPage extends Component {
         {this.renderAlert()}
         <GoalSearch
           goalSearchSubmit={this.goalSearchSubmit}
-          updateCurrentSearchTerm={this.updateSearchTerm}
+          updateCurrentSearchTerm={this.props.updateSearchTerm}
           currentSearchTerm={this.props.currentSearchTerm}
         />
         <br/>
