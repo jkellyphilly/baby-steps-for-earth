@@ -5,7 +5,7 @@ const defaultState = {
   loadingGoals: false,
   myGoals: [],
   currentSearchTerm: "all",
-  alertMessage: ""
+  alertMessageExplore: ""
 }
 
 const babyStepsReducer = (state = defaultState, action) => {
@@ -72,17 +72,17 @@ const babyStepsReducer = (state = defaultState, action) => {
         currentSearchTerm: action.updatedSearchTerm
       }
 
-    case 'UPDATE_ALERT_MESSAGE':
+    case 'UPDATE_ALERT_MESSAGE_EXPLORE':
       return {
         ...state,
-        alertMessage: action.message,
+        alertMessageExplore: action.message,
         addedGoal: action.goal
       }
 
-    case 'REMOVE_ALERT_MESSAGE':
+    case 'REMOVE_ALERT_MESSAGE_EXPLORE':
       return {
         ...state,
-        alertMessage: ""
+        alertMessageExplore: ""
       }
 
     default:
