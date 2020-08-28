@@ -21,7 +21,6 @@ class ProfilePage extends Component {
       username: info.username
     }
 
-    console.log("Is this being reached?");
     this.props.createPlan(newPlan);
   }
 
