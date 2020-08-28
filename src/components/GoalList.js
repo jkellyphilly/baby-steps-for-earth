@@ -15,6 +15,7 @@ const GoalList = (props) => {
                   goal={goal}
                   key={goal.id}
                   handleSubmit={props.buttonFunction}
+                  addSuccessMessage={props.addSuccessMessage}
                   path={props.path}/>
               </div>
             )

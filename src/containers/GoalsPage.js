@@ -30,9 +30,16 @@ class GoalsPage extends Component {
     }
   }
 
+  // TODO: can this function be removed and the dispatch
+  // just immediately gets passed in...?
   updateSearchTerm = (newTerm) => {
     this.props.updateSearchTerm(newTerm);
   }
+
+  // addSuccessMessage = (alertMessage) => {
+  //   console.log("addSuccessMessage reached");
+  //   // this.props.addSuccessMessage(alertMessage);
+  // }
 
   render() {
     console.log("Props for the page", this.props)
@@ -57,6 +64,7 @@ class GoalsPage extends Component {
         <GoalList
           goals={this.props.goals}
           buttonFunction={this.props.addGoalToMyPlan}
+          addSuccessMessage={this.props.addSuccessMessage}
           path={this.props.match.path}/>
       </div>
     )
@@ -78,7 +86,8 @@ const mapDispatchToProps = dispatch => {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
     createGoal: (info) => dispatch(createGoal(info)),
     addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal}),
-    updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm})
+    updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm}),
+    addSuccessMessage: (message) => dispatch({ type: 'UPDATE_ALERT_MESSAGE', message})
   }
 }
 
