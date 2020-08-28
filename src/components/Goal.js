@@ -4,16 +4,20 @@ import Button from 'react-bootstrap/Button';
 
 const Goal = (props) => {
 
-  const handleClick = (event) => {
+  const handleClick = (event, path) => {
     event.preventDefault();
-    props.addSuccessMessage("Congrats - goal added to your profile!");
+    
+    if (path==='/explore') {
+      props.addSuccessMessage("Goal added to your profile!");
+    }
+
     props.handleSubmit(props.goal);
   }
 
   const renderBtn = (path) => {
     const phrasing = path==='/explore' ? "Add to" : "Remove from";
     return (
-      <Button variant="info" onClick={handleClick}>
+      <Button variant="info" onClick={(e) => handleClick(e, path)}>
         {phrasing} your plan
       </Button>
     )

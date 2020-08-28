@@ -6,7 +6,8 @@ import GoalList from '../components/GoalList';
 import CreateGoal from '../components/CreateGoal';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 class GoalsPage extends Component {
 
@@ -18,14 +19,24 @@ class GoalsPage extends Component {
     this.props.createGoal(info);
   }
 
+  closeAlert = () => {
+    this.props.removeSuccessMessage();
+  }
+
   renderAlert = () => {
     if (!!this.props.alertMessage) {
       return (
         <Container>
           <Alert variant="success">
+            <Alert.Heading>{this.props.alertMessage}</Alert.Heading>
             <p>
-              {this.props.alertMessage}
+              Goal added: "{this.props.addedGoal.attributes.title}"
             </p>
+            <div className="d-flex justify-content-end">
+            <Button onClick={this.closeAlert} variant="outline-success">
+              Close
+            </Button>
+          </div>
           </Alert>
         </Container>
       )
@@ -37,11 +48,6 @@ class GoalsPage extends Component {
   updateSearchTerm = (newTerm) => {
     this.props.updateSearchTerm(newTerm);
   }
-
-  // addSuccessMessage = (alertMessage) => {
-  //   console.log("addSuccessMessage reached");
-  //   // this.props.addSuccessMessage(alertMessage);
-  // }
 
   render() {
     console.log("Props for the page", this.props)
@@ -89,7 +95,8 @@ const mapDispatchToProps = dispatch => {
     createGoal: (info) => dispatch(createGoal(info)),
     addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal}),
     updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm}),
-    addSuccessMessage: (message) => dispatch({ type: 'UPDATE_ALERT_MESSAGE', message})
+    addSuccessMessage: (message) => dispatch({ type: 'UPDATE_ALERT_MESSAGE', message, goal}),
+    removeSuccessMessage: () => dispatch({ type: 'REMOVE_ALERT_MESSAGE'})
   }
 }
 
