@@ -50,7 +50,6 @@ class GoalsPage extends Component {
   }
 
   render() {
-    console.log("Props for the page", this.props)
     return (
       <div className="goals">
         <Jumbotron fluid>
@@ -85,7 +84,8 @@ const mapStateToProps = state => {
     goals: state.goals,
     loadingGoals: state.loadingGoals,
     currentSearchTerm: state.currentSearchTerm,
-    alertMessage: state.alertMessage
+    alertMessage: state.alertMessage,
+    addedGoal: state.addedGoal
   }
 }
 
@@ -95,7 +95,7 @@ const mapDispatchToProps = dispatch => {
     createGoal: (info) => dispatch(createGoal(info)),
     addGoalToMyPlan: (goal) => dispatch({ type: 'ADD_GOAL_TO_MY_PLAN', goal}),
     updateSearchTerm: (updatedSearchTerm) => dispatch({ type: 'UPDATE_CURRENT_SEARCH_TERM', updatedSearchTerm}),
-    addSuccessMessage: (message) => dispatch({ type: 'UPDATE_ALERT_MESSAGE', message, goal}),
+    addSuccessMessage: (message, goal) => dispatch({ type: 'UPDATE_ALERT_MESSAGE', message, goal}),
     removeSuccessMessage: () => dispatch({ type: 'REMOVE_ALERT_MESSAGE'})
   }
 }

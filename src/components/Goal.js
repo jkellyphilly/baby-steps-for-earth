@@ -6,9 +6,9 @@ const Goal = (props) => {
 
   const handleClick = (event, path) => {
     event.preventDefault();
-    
+
     if (path==='/explore') {
-      props.addSuccessMessage("Goal added to your profile!");
+      props.addSuccessMessage("Goal added to your profile!", props.goal);
     }
 
     props.handleSubmit(props.goal);

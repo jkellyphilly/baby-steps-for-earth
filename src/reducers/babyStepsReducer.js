@@ -75,7 +75,8 @@ const babyStepsReducer = (state = defaultState, action) => {
     case 'UPDATE_ALERT_MESSAGE':
       return {
         ...state,
-        alertMessage: action.message
+        alertMessage: action.message,
+        addedGoal: action.goal
       }
 
     case 'REMOVE_ALERT_MESSAGE':
