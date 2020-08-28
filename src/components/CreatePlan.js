@@ -59,6 +59,7 @@ class CreatePlan extends Component {
 
   handleSubmit = (e, info) => {
     e.preventDefault();
+    console.log("Being reached?");
     this.props.createNewPlan(info);
   }
 

@@ -21,6 +21,7 @@ class ProfilePage extends Component {
       username: info.username
     }
 
+    console.log("Is this being reached?");
     this.props.createPlan(newPlan);
   }
 
@@ -35,7 +36,7 @@ class ProfilePage extends Component {
           <Alert variant="success">
             <Alert.Heading>{this.props.alertMessage}</Alert.Heading>
             <p>
-              Thanks for adding your plan to our community, {this.props.username}
+              Thanks for adding your plan to our community, {this.props.username}!
             </p>
             <div className="d-flex justify-content-end">
             <Button onClick={this.closeAlert} variant="outline-success">
