@@ -17,7 +17,6 @@ class CreatePlan extends Component {
     })
   }
 
-  // TODO: this can be condensed more
   renderSubmitBtn = () => {
     if (this.props.myGoals.length !== 7) {
       return (
