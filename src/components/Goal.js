@@ -4,11 +4,17 @@ import Button from 'react-bootstrap/Button';
 
 const Goal = (props) => {
 
+  // Use the function passed down to this Goal
+  // to either add or remove this Goal from the
+  // current user's plan
   const handleClick = (event, path) => {
     event.preventDefault();
     props.handleSubmit(props.goal);
   }
 
+  // Render the button with different text depending
+  // on whether it's being rendered on the explore
+  // page or profile page
   const renderBtn = (path) => {
     const phrasing = path==='/explore' ? "Add to" : "Remove from";
     return (
@@ -18,6 +24,7 @@ const Goal = (props) => {
     )
   }
 
+  // Build a string with the tags with # in front of each one
   const reducer = (acc, curr) => acc + ' #' + curr.content;
 
   return (
