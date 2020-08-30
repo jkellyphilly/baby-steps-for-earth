@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 
 class PlansPage extends Component {
 
+  // Render different welcome greeting based on whether or not
+  // Redux store has a username present
   renderWelcome = () => {
     const phrasing = !!this.props.username ? "Welcome to the community, " + this.props.username + "!" : "Welcome to the community!";
     return (
@@ -32,6 +34,7 @@ class PlansPage extends Component {
   }
 }
 
+// Connect these variables from Redux store to this page's props
 const mapStateToProps = state => {
   return {
     plans: state.plans,

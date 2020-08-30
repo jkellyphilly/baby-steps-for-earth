@@ -11,10 +11,14 @@ import Button from 'react-bootstrap/Button';
 
 class GoalsPage extends Component {
 
+  // Close the alert message by removing the message
+  // from the Redux store
   closeAlert = () => {
     this.props.removeSuccessMessage();
   }
 
+  // Render the alert banner with alert message from Redux
+  // store if a message is present after adding goal to plan
   renderAlert = () => {
     if (!!this.props.alertMessage) {
       return (
@@ -64,7 +68,7 @@ class GoalsPage extends Component {
   }
 }
 
-
+// Connect these variables from Redux store to this page's props
 const mapStateToProps = state => {
   return {
     goals: state.goals,
@@ -76,6 +80,7 @@ const mapStateToProps = state => {
   }
 }
 
+// Connect these methods from Redux store to this page's props
 const mapDispatchToProps = dispatch => {
   return {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),

@@ -10,10 +10,12 @@ import Button from 'react-bootstrap/Button';
 
 class ProfilePage extends Component {
 
+  // TODO: is this being used?!
   myFunction = (goals) => {
     goals.map(goal => goal.id)
   }
 
+  // Given info for creating new plan, make POST to database
   createNewPlan = (info) => {
     // Only send over the IDs of the current goals
     const newPlan = {
@@ -24,10 +26,14 @@ class ProfilePage extends Component {
     this.props.createPlan(newPlan);
   }
 
+  // Close the alert message by removing the message
+  // from the Redux store
   closeAlert = () => {
     this.props.removeAlertMessage();
   }
 
+  // Render the alert banner with alert message from Redux
+  // store if a message is present after adding plan to database
   renderAlert = () => {
     if (!!this.props.alertMessage) {
       return (
@@ -78,6 +84,7 @@ class ProfilePage extends Component {
   }
 }
 
+// Connect these variables from Redux store to this page's props
 const mapStateToProps = state => {
   return {
     myGoals: state.myGoals,
@@ -86,6 +93,7 @@ const mapStateToProps = state => {
   }
 }
 
+// Connect these methods from Redux store to this page's props
 const mapDispatchToProps = dispatch => {
   return {
     createPlan: (info) => dispatch(createPlan(info)),

@@ -12,6 +12,8 @@ import ProfilePage from './ProfilePage';
 
 class App extends Component {
 
+  // When the App component mounts, fetch all goals
+  // and plans from the database
   componentDidMount() {
     this.props.fetchGoals();
     this.props.fetchPlans();
@@ -32,6 +34,8 @@ class App extends Component {
 
 }
 
+// Connect fetchGoals and fetchPlans methods from store
+// to this page's props
 const mapDispatchToProps = dispatch => {
   return {
     fetchGoals: (input = 'all') => dispatch(fetchGoals(input)),
