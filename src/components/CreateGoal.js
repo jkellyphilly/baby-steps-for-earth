@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
 class CreateGoal extends Component {
+  // Initialize state of this component
   constructor() {
     super()
     this.state = {
@@ -14,12 +15,14 @@ class CreateGoal extends Component {
     }
   }
 
+  // Maintain input for various keys in state
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  // Create a new goal and close the modal
   handleSubmit = (e, info) => {
     e.preventDefault();
     this.props.createNewGoal(info);

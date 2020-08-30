@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class CreatePlan extends Component {
+  // Initialize state of this component
   constructor() {
     super()
     this.state = {
@@ -11,12 +12,15 @@ class CreatePlan extends Component {
     }
   }
 
+  // Maintain input for various keys in state
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  // Only render the submit button as active if
+  // the number of myGoals in the Redux store is 7
   renderSubmitBtn = () => {
     if (this.props.myGoals.length !== 7) {
       return (
@@ -41,6 +45,9 @@ class CreatePlan extends Component {
     }
   }
 
+  // If there aren't exactly 7 goals in myGoals from Redux store,
+  // instead render a message to the user about how many goals
+  // they have in their plan
   renderLabel = () => {
     if (this.props.myGoals.length !== 7) {
       return (
@@ -53,6 +60,7 @@ class CreatePlan extends Component {
     }
   }
 
+  // Upon submission, create a new plan
   handleSubmit = (e, info) => {
     e.preventDefault();
     this.props.createNewPlan(info);
@@ -81,6 +89,7 @@ class CreatePlan extends Component {
   }
 }
 
+// Connect myGoals from Redux store to this component's props
 const mapStateToProps = state => {
   return {
     myGoals: state.myGoals

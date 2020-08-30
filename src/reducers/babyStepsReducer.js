@@ -1,3 +1,4 @@
+// Define default state of Redux store
 const defaultState = {
   plans: [],
   goals: [],
