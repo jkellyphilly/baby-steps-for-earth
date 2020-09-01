@@ -1,16 +1,17 @@
-// Please note: I have configured my API to run on port 4000,
-// which is why the fetch calls go there. If you need to change this
-// to a different port number or have a different method of completing this,
-// please open a PR.
+// Configure your baseUrl based on your local environment/where you are
+// running the backend code.
+const baseUrl = 'http://localhost:4000';
 
-// For these functions, I am using Redux Thunk to provide my dispatcher...
-// TODO: finish describing these files
+// For these functions, I am using Redux Thunk as the middleware in order to return
+// the modified aysnchronous dispatch function
 
+// Fetch all goals from the database, and upon Promise resolution,
+// make dispatch of type ADD_GOALS which will update our Redux store
 export const fetchGoals = (input) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING_GOALS' });
 
-    fetch(`http://localhost:4000/goals?tags=${input}`)
+    fetch(`${baseUrl}/goals?tags=${input}`)
     .then(resp => resp.json())
     .then(responseJSON => {
       dispatch({ type: 'ADD_GOALS', goals: responseJSON.data})
@@ -18,6 +19,9 @@ export const fetchGoals = (input) => {
   }
 }
 
+// Take information passed to function and make POST request
+// to backend - upon Promise resolution, make dispatch of type
+// ADD_NEW_GOAL which will update our Redux store with the new goal
 export const createGoal = (info) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING_GOALS' });
@@ -31,7 +35,7 @@ export const createGoal = (info) => {
       body: JSON.stringify({ title: info.title, content: info.content, tags: info.tags })
     }
 
-    fetch('http://localhost:4000/goals', configObj)
+    fetch(`${baseUrl}/goals`, configObj)
     .then(resp => resp.json())
     .then(responseJSON => {
       if (responseJSON.message) {
@@ -43,11 +47,13 @@ export const createGoal = (info) => {
   }
 }
 
+// Fetch all plans from the database, and upon Promise resolution,
+// make dispatch of type ADD_PLANS which will update our Redux store
 export const fetchPlans = () => {
   return (dispatch) => {
     dispatch({ type: 'LOADING_PLANS' });
 
-    fetch("http://localhost:4000/plans")
+    fetch(`${baseUrl}/plans`)
     .then(resp => resp.json())
     .then(responseJSON => {
       dispatch({ type: 'ADD_PLANS', plans: responseJSON.data})
@@ -55,6 +61,9 @@ export const fetchPlans = () => {
   }
 }
 
+// Take information passed to function and make POST request
+// to backend - upon Promise resolution, make dispatch of type
+// ADD_NEW_PLAN which will update our Redux store with the new plan
 export const createPlan = (info) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING_PLANS' });
@@ -68,7 +77,7 @@ export const createPlan = (info) => {
       body: JSON.stringify(info)
     }
 
-    fetch('http://localhost:4000/plans', configObj)
+    fetch(`${baseUrl}/plans`, configObj)
     .then(resp => resp.json())
     .then(responseJSON => {
       if (responseJSON.message) {

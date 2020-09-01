@@ -11,6 +11,7 @@ const defaultState = {
   username: ""
 }
 
+// Update the state in Redux store based on input action
 const babyStepsReducer = (state = defaultState, action) => {
   switch(action.type) {
     case 'LOADING_GOALS':
